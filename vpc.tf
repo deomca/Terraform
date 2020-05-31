@@ -56,5 +56,5 @@ resource "aws_route_table" "public" {
 resource "aws_route_table_association" "a" {
   count = "${local.az_length}"
   subnet_id      = "${aws_subnet.public.*.id[count.index]}"
-  route_table_id = aws_route_table.public.id
+  route_table_id = "${aws_route_table.public.id}"
 }
